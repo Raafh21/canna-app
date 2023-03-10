@@ -17,7 +17,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <h6 class="text-muted font-semibold">User</h6>
-                                            <h6 class="font-extrabold mb-0">count user</h6>
+                                            <h6 class="font-extrabold mb-0">{{ $jumlahUser }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="col-md-8">
                                             <h6 class="text-muted font-semibold">Data Latih</h6>
-                                            <h6 class="font-extrabold mb-0">count latih</h6>
+                                            <h6 class="font-extrabold mb-0">{{ $jumlahData }}</h6>
                                         </div>
                                     </div>
                                 </div>

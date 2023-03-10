@@ -4,30 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Hama;
-use App\Models\Hasilhama;
-use App\Models\Hasilpenyakit;
 use App\Models\User;
-use App\Models\Penyakit;
-use App\Models\Setting;
-use App\Models\Value;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
-    // public function index()
-    // {
-    //     // // return view('dashboard',[
-    //     // //     'title' => 'Dashboard',
-    //     // //     'count_user' => User::count(),
-    //     // //     'count_hama' => Hama::count(),
-    //     // //     'count_penyakit' => Penyakit::count(),
-    //     // //     'count_value' => Value::count(),
-    //     // //     'hamas' => Hama::all(),
-    //     // //     'hasilhamas' => Hasilhama::orderby('id','desc')->get(),
-    //     // //     'hasilpenyakits' => Hasilpenyakit::orderby('id','desc')->get(),
-    //     // //     'penyakits' => Penyakit::all(),
-    //     // ]);
-    // }
 
     public function home()
     {
@@ -35,6 +17,7 @@ class DashboardController extends Controller
             'title' => 'Sipagung - Sistem Pakar Diagnosa Hama & Penyakit Jagung',
             
         ]);
+
     } 
 
     public function about()
@@ -54,8 +37,13 @@ class DashboardController extends Controller
 
     public function admin()
     {
+        $jumlahData = DB::table('tb_training')->count();
+        $jumlahUser = DB::table('users')->count();
+  
         return view('dashboard', [
-            'title' => 'admin'
+            'title' => 'Dashboard',
+            'jumlahData' =>$jumlahData,
+            'jumlahUser' =>$jumlahUser,
         ]);
     }
 
@@ -73,71 +61,48 @@ class DashboardController extends Controller
         ]);
     }
     
-    public function login_process(Request $request)
+    public function login_process(Request $request): RedirectResponse
     {
-        $credentials = $request->validate([
+        $request->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
-            return redirect('/admin');
+        $credentials = $request->only('username', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/admin');
         }
+
         return redirect('/login')->with('status','Login Gagal!');
     }
-    // public function login()
-    // {
-    //     return view('login',[
-    //         'title' => 'Login',
-    //     ]);
-    // }
 
-    // public function login_process(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required',
-    //         'password' => 'required|min:6|'
-    //     ]);
+    public function riwayat()
+    {
+        return view('riwayat.index',[
+            'title' => 'riwayat',
+        ]);
+    }
 
-    //     if(Auth::attempt($credentials)){
-    //         return redirect('/dashboard');
-    //     }
-    //     return redirect('/login')->with('status','Login Gagal!');
-    // }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 
-    // public function logout()
-    // {
-    //     Auth::logout();
-    //     return redirect('/login');
-    // }
+    public function profile()
+    {
+        $user = User::find(auth()->user()->id);
+        return view('profile',[
+            'title' => 'Profile',
+            'user' => $user,
+        ]);
+    }
 
-    // public function profile()
-    // {
-    //     $user = User::find(auth()->user()->id);
-    //     return view('profile',[
-    //         'title' => 'Profile',
-    //         'user' => $user,
-    //     ]);
-    // }
-
-    // public function profile_update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //         'email' => 'required',
-    //         // 'password' => 'required|min:6|confirmed',
-    //         // 'repassword' => 'required|same:password',
-    //     ]);
-
-    //     // dd($request->all());
-
-    //     User::where('id', $id)->update([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //     ]);
-
-    //     return redirect('/profile')->with('status','Profile Berhasil Diupdate!');
-
-    //}
+    public function ganti()
+    {
+        return view('ganti', [
+            'title' => 'Ganti Password'
+        ]);
+    }
 }
+
