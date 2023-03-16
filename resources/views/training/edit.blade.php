@@ -2,21 +2,20 @@
 
 @section('container')
 <div class="page-content">
-    <section class="section col-9">
+    <section class="section">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">{{ $title }}</h4>
             </div>
             <div class="card-body">
-                <form class="form form-vertical " method="post" action="{{ route('training.update', $training->id) }}">
-                    @method('patch')
+                <form class="form form-vertical " method="post" action="{{ route('training.store') }}">
                     @csrf
                     <div class="form-body">
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group mt-3">
                                     <label for="nama_siswa">Nama Siswa</label>
-                                    <input type="text" class="form-control mt-2  @error('nama_siswa') is-invalid @enderror" name="nama_siswa" id="nama_siswa" value="{{ old('nama_siswa', $training->nama_siswa) }}" placeholder="Nama Siswa">
+                                    <input type="text" class="form-control mt-2  @error('nama_siswa') is-invalid @enderror" name="nama_siswa" id="nama_siswa" placeholder="Nama Siswa">
                                     @error('nama_siswa')
                                     <div class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
@@ -26,12 +25,14 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="nama_sekolah">Nama Sekolah</label>
-                                    <input type="text" class="form-control mt-2" name="nama_sekolah" id="nama_sekolah" value="{{ old('nama_sekolah', $training->nama_sekolah) }}" placeholder="Nama Sekolah">
+                                    <input type="text" class="form-control mt-2" name="nama_sekolah" id="nama_sekolah" placeholder="Nama Sekolah">
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="minat">Minat</label>
                                     <select class="form-control" name="minat" id="minat">
                                         <option value="">--Silahkan Pilih--</option>
+                                        <option value="IPA">IPA</option>
+                                        <option value="IPS">IPS</option>
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +104,7 @@
                                 <div class="form-group row mt-3">
                                     <label for="nilai_tes" class="col-md-2 col-form-label">Nilai Test</label>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" value="{{ old('minat', $training->minat) }}" name="nilai_tes" id="nilai_tes">
+                                        <input type="text" class="form-control" name="nilai_tes" id="nilai_tes">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary offset-10 mt-4">Simpan</button>

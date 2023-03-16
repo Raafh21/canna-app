@@ -31,8 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::resource('/riwayat', RiwayatController::class);
+Route::get('/{id}/lihat2', [RiwayatController::class,'see2'])->name('LihatRiwayat');
 Route::get('/about', [DashboardController::class, 'about'])->name('about');
-Route::get('/{id}/lihat2', [DashboardController::class,'see2'])->name('LihatRiwayat');
 Route::get('/klasifikasi', [DashboardController::class, 'klasifikasi'])->name('klasifikasi');
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 

@@ -138,7 +138,7 @@ class TrainingController extends Controller
      */
     public function edit($id)
     {
-        $training = DB::table('tb_tes')->find($id);
+        $training = DB::table('tb_training')->find($id);
 
         return view('training.edit', [
             'title' => 'Edit Data Training',
