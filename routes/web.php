@@ -22,6 +22,7 @@ use App\Http\Controllers\TrainingController;
 // });
 Route::group(['middleware' => ['auth']], function () {
   Route::resource('/training', TrainingController::class);
+  Route::get('/{id}/lihat', [TrainingController::class,'see'])->name('Lihat');
   Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
   Route::get('/pohon', [PerhitunganController::class, 'pohon'])->name('pohon');
   Route::get('/ganti', [DashboardController::class, 'ganti'])->name('ganti');
@@ -31,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::resource('/riwayat', RiwayatController::class);
 Route::get('/about', [DashboardController::class, 'about'])->name('about');
+Route::get('/{id}/lihat2', [DashboardController::class,'see2'])->name('LihatRiwayat');
 Route::get('/klasifikasi', [DashboardController::class, 'klasifikasi'])->name('klasifikasi');
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 

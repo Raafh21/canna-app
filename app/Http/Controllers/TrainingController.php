@@ -27,6 +27,15 @@ class TrainingController extends Controller
         ]);
     }
 
+    public function see($id)
+    {
+        $training = DB::table('tb_training')->find($id);
+        return view('training.see', [
+            'title' => 'Data Training',
+            'training' => $training
+        ]);
+    }
+
 
 
     /**

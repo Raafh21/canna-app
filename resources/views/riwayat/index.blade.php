@@ -44,7 +44,7 @@
                                     <td>{{ $row->nilai_tes }}</td>
                                     <td>{{ $row->hasil }}</td>
                                     <td class="text-center">
-                                        <a href="{{ route('training.edit', $row->id) }}" class="btn btn-secondary btn-sm">
+                                        <a href="{{ route('LihatRiwayat', $row->id) }}" class="btn btn-secondary btn-sm">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                                 class="bi bi-eye" viewBox="0 0 16 16">
                                                 <path

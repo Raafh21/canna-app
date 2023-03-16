@@ -40,7 +40,7 @@
                             <td>{{ $row->minat }}</td>
                             <td>{{ $row->nilai_tes }}</td>
                             <td class="text-center">
-                            <a href="{{ route('training.edit', $row->id) }}" class="btn btn-success btn-sm">
+                            <a href="{{ route('Lihat', $row->id) }}" class="btn btn-success btn-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-eye" viewBox="0 0 16 16">
                                         <path
