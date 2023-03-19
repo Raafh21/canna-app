@@ -120,6 +120,28 @@
             $('#trainingTable').DataTable();
         });
     </script>
+
+    <script>
+        // Hapus Data Training
+        $(document).on('click', '.hapus-training', function(e) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            e.preventDefault();
+            Swal.fire({
+                title: 'Apakah Anda Yakin?',
+                text: "Data Training!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Hapus Data!'
+            }).then((result) => {
+                if (result) {
+                    form.submit();
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>

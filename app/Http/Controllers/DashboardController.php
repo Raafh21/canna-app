@@ -7,22 +7,22 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
 
     public function home()
     {
-        return view('index',[
+        return view('index', [
             'title' => 'Sipagung - Sistem Pakar Diagnosa Hama & Penyakit Jagung',
-            
-        ]);
 
-    } 
+        ]);
+    }
 
     public function about()
     {
-        return view('about',[
+        return view('about', [
             'title' => 'Sipagung About - Sistem Pakar Diagnosa Hama & Penyakit Jagung',
             // 'settings' => Setting::orderby('id', 'asc')->get()
         ]);
@@ -39,11 +39,11 @@ class DashboardController extends Controller
     {
         $jumlahData = DB::table('tb_training')->count();
         $jumlahUser = DB::table('users')->count();
-  
+
         return view('dashboard', [
             'title' => 'Dashboard',
-            'jumlahData' =>$jumlahData,
-            'jumlahUser' =>$jumlahUser,
+            'jumlahData' => $jumlahData,
+            'jumlahUser' => $jumlahUser,
         ]);
     }
 
@@ -56,11 +56,11 @@ class DashboardController extends Controller
 
     public function login()
     {
-        return view('login',[
+        return view('login', [
             'title' => 'Login',
         ]);
     }
-    
+
     public function login_process(Request $request): RedirectResponse
     {
         $request->validate([
@@ -73,38 +73,52 @@ class DashboardController extends Controller
             return redirect()->intended('/admin');
         }
 
-        return redirect('/login')->with('status','Login Gagal!');
+        return redirect('/login')->with('status', 'Login Gagal!');
     }
 
     public function riwayat()
     {
-        return view('riwayat.index',[
+        return view('riwayat.index', [
             'title' => 'riwayat',
         ]);
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/login');
     }
 
     public function profile()
     {
         $user = User::find(auth()->user()->id);
-        return view('profile',[
+        return view('profile', [
             'title' => 'Profile',
             'user' => $user,
         ]);
     }
 
-    public function ganti()
+    public function profile_update(Request $request)
     {
-        return view('ganti', [
-            'title' => 'Ganti Password'
+        $request->validate([
+            'password_lama' => 'required',
+            'password_baru' => 'required',
         ]);
+        $user = User::find(Auth::id());
+        $user->password = Hash::make($request->password_baru);
+        $user->save();
+        $request->session()->regenerate();
+        return back()->with('success', 'Password Diubah!');
     }
 
-
+    public function ganti()
+    {
+        $user = User::find(auth()->user()->id);
+        return view('ganti', [
+            'title' => 'Ganti Password',
+            'user' => $user,
+        ]);
+    }
 }
-

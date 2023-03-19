@@ -40,13 +40,13 @@
                             <td>{{ $row->minat }}</td>
                             <td>{{ $row->nilai_tes }}</td>
                             <td class="text-center">
-                            <a href="{{ route('Lihat', $row->id) }}" class="btn btn-success btn-sm">
+                                <a href="{{ route('training.show', $row->id) }}" class="btn btn-success btn-sm">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-eye" viewBox="0 0 16 16">
                                         <path
-                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                            d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
                                         <path fill-rule="evenodd"
-                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                            d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
                                     </svg>
                                     Lihat</a>
                                 <a href="{{ route('training.edit', $row->id) }}" class="btn btn-primary btn-sm">
@@ -58,11 +58,11 @@
                                             d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                     </svg>
                                     Edit</a>
-                                <form action="{{ route('training.destroy', $row->id) }}" method="post" class="d-inline"
-                                    onsubmit="return confirm('Are you sure to delete the data?')">
+                                <form action="{{ route('training.destroy', $row->id) }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm" type="submit">
+                                    <button class="btn btn-danger btn-sm hapus-training" name="{{ $row->nama_siswa }}"
+                                        type="submit">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                             fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                                             <path

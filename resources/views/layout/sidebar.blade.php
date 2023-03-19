@@ -26,7 +26,7 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item {{ $title == 'Training'  ? 'active' : '' }} ">
+                <li class="sidebar-item {{ $title == 'Data Training'  ? 'active' : '' }} ">
                     <a href="/training" class='sidebar-link'>
                         <i class="bi bi-pencil-square"></i>
                         <span>Data Training</span>
@@ -34,20 +34,17 @@
                 </li>
 
                 <li
-                    class="sidebar-item {{ $title == 'Perhitungan' || $title == 'Decision Tree' || $title == 'Rules Klasifikasi' ? 'active' : '' }} has-sub">
+                    class="sidebar-item {{ $title == 'Proses Mining' || $title == 'Pohon Keputusan' ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-bar-chart-steps"></i>
                         <span>Algoritma C4.5</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item {{ $title == 'Perhitungan' ? 'active' : '' }} ">
-                            <a href="{{ route('perhitungan') }}">Perhitungan</a>
+                        <li class="submenu-item {{ $title == 'Proses Mining' ? 'active' : '' }} ">
+                            <a href="{{ route('mining') }}">Proses Mining</a>
                         </li>
-                        <li class="submenu-item {{ $title == 'Decision Tree' ? 'active' : '' }} ">
-                            <a href="{{ route('pohon') }}">Decision Tree</a>
-                        </li>
-                        <li class="submenu-item {{ $title == 'Rules Klasifikasi' ? 'active' : '' }} ">
-                            <a href="#">Rules Klasifikasi</a>
+                        <li class="submenu-item {{ $title == 'Pohon Keputusan' ? 'active' : '' }} ">
+                            <a href="{{ route('pohon') }}">Pohon Keputusan</a>
                         </li>
 
                     </ul>
@@ -57,13 +54,13 @@
                     <hr>
                 </li>
 
-                <li class="sidebar-item {{ $title == 'Setting' || $title == '' ? 'active' : '' }} has-sub">
+                <li class="sidebar-item {{ $title == 'Ganti Password' ? 'active' : '' }} has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-gear"></i>
                         <span>Pengaturan</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item {{ $title == 'User' ? 'active' : '' }}">
+                        <li class="submenu-item {{ $title == 'Ganti Password' ? 'active' : '' }}">
                             <a href="/ganti">Ganti Password</a>
                         </li>
                     </ul>
