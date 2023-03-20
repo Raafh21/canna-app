@@ -6,7 +6,7 @@
         <br>
 
         <div class="mt-5 col-md-7">
-            <img src="{{asset('img/ganti.png')}}" alt="" width="500" height="410">
+            <img src="{{asset('img/ganti.png')}}" alt="" width="490" height="410">
         </div>
         <br>
         <div class="mt-4 col-md-5">

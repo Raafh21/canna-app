@@ -51,4 +51,16 @@ class PerhitunganController extends Controller
             'dataRule' => $dataRule,
         ]);
     }
+
+    public function uji()
+    {
+        $jumlahData = DB::table('tb_latih')->count();
+        $dataLatih = DB::table('tb_latih')->get();
+
+        return view('uji', [
+            'title' => 'Data Uji',
+            'jumlahData' => $jumlahData,
+            'dataLatih' => $dataLatih,
+        ]);
+    }
 }
