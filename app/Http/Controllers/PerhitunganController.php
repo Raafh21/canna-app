@@ -469,4 +469,15 @@ class PerhitunganController extends Controller
             'dataLatih' => $dataLatih,
         ]);
     }
+
+    public function pohon()
+    {
+        $jumlahDataRule = DB::table('t_keputusan')->count();
+        $dataRule = DB::table('t_keputusan')->get();
+        return view('pohon', [
+            'title' => 'Pohon Keputusan',
+            'jumlahDataRule' => $jumlahDataRule,
+            'dataRule' => $dataRule,
+        ]);
+    }
 }

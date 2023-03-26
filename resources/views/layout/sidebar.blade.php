@@ -46,7 +46,9 @@
                         <li class="submenu-item {{ $title == 'Pohon Keputusan' ? 'active' : '' }} ">
                             <a href="{{ route('pohon') }}">Pohon Keputusan</a>
                         </li>
-
+                        <li class="submenu-item {{ $title == 'Pohon Keputusan' ? 'active' : '' }} ">
+                            <a href="{{ route('uji') }}">Data Uji</a>
+                        </li>
                     </ul>
                 </li>
 

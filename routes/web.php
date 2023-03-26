@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/perhitungan', [PerhitunganController::class, 'index'])->name('perhitungan');
   Route::get('/mining', [PerhitunganController::class, 'mining'])->name('mining');
   Route::get('/pohon', [PerhitunganController::class, 'pohon'])->name('pohon');
+  Route::get('/uji', [PerhitunganController::class, 'uji'])->name('uji');
   Route::get('/ganti', [DashboardController::class, 'ganti'])->name('ganti');
   Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
   Route::get('/logout', [DashboardController::class, 'logout'])->name('logout');
