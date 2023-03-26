@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +38,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 
-  
+
 </head>
 
 <body>
@@ -55,7 +54,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="navbar-nav " href="/klasifikasi">Klasifikasi</a></li>
-                    <li><a class="navbar-nav " href="/admin">Riwayat Klasifikasi</a></li>
+                    <li><a class="navbar-nav " href="/riwayat">Riwayat Klasifikasi</a></li>
                     <li><a class="navbar-nav " href="{{route ('about') }}">Tentang</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -64,7 +63,7 @@
         </div>
     </header><!-- End Header -->
 
-@yield('container')
+    @yield('container')
 
     <!-- Vendor JS Files -->
     <script src="{{ asset('flex-start/vendor/purecounter/purecounter_vanilla.js') }}"></script>
@@ -75,7 +74,7 @@
     <script src="{{ asset('flex-start/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
     <!-- Template Main JS File -->
-     <script src="{{ asset('flex-start/js/main.js') }}"></script>
+    <script src="{{ asset('flex-start/js/main.js') }}"></script>
 
 </body>
 

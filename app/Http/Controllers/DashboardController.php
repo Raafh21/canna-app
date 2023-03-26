@@ -28,13 +28,6 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function klasifikasi()
-    {
-        return view('prediksi', [
-            'title' => 'klasifikasi'
-        ]);
-    }
-
     public function admin()
     {
         $jumlahData = DB::table('tb_training')->count();

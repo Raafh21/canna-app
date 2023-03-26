@@ -9,8 +9,6 @@ class Riwayat extends Model
 {
     use HasFactory;
     
-    protected $table = 'tb_training';
-
     protected $fillable = [
         'nama_siswa',
         'nama_sekolah',

@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\KlasifikasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,9 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::resource('/riwayat', RiwayatController::class);
-Route::get('/{id}/lihat2', [RiwayatController::class, 'see2'])->name('LihatRiwayat');
+Route::get('/klasifikasi', [KlasifikasiController::class, 'index'])->name('klasifikasi');
+Route::post('/klasifikasi', [KlasifikasiController::class, 'store'])->name('store');
 Route::get('/about', [DashboardController::class, 'about'])->name('about');
-Route::get('/klasifikasi', [DashboardController::class, 'klasifikasi'])->name('klasifikasi');
 Route::get('/', [DashboardController::class, 'home'])->name('home');
 
 Route::middleware(['guest'])->group(function () {

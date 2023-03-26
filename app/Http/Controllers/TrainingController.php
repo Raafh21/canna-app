@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTrainingRequest;
 use App\Models\Training;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 
 class TrainingController extends Controller
@@ -78,13 +78,6 @@ class TrainingController extends Controller
         ]);
 
         DB::table('tb_training')->insert([
-            'nama_siswa' => $request->nama_siswa,
-            'nama_sekolah' => $request->nama_sekolah,
-            'minat' => $request->minat,
-            'nilai_tes' => $request->nilai_tes
-        ]);
-
-        Training::create([
             'nama_siswa' => $request->nama_siswa,
             'nama_sekolah' => $request->nama_sekolah,
             'mtk_1' => $request->nilai_mtk1,
