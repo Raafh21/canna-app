@@ -28,6 +28,35 @@
 
     <link rel="stylesheet" href="{{ asset('plugin/datatables-bs4/css/dataTables.bootstrap.min.css')}}" />
 
+
+    <style>
+    .treeview ul {
+        padding-left: 20px;
+        list-style: none;
+    }
+
+    .treeview li {
+        margin-bottom: 10px;
+    }
+
+    .treeview li span {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .treeview li ul li span {
+        font-weight: normal;
+    }
+
+    .treeview li ul {
+        display: none;
+    }
+
+    .treeview li.active>ul {
+        display: block;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -41,7 +70,9 @@
                             <i class="bi bi-justify fs-3"></i>
                         </a>
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -88,19 +119,19 @@
 
     <script src="{{ asset('mazer/vendors/simple-datatables/simple-datatables.js') }}"></script>
     <script>
-        // Simple Datatable
-        let table1 = document.querySelector('#table');
-        let dataTable = new simpleDatatables.DataTable(table1);
+    // Simple Datatable
+    let table1 = document.querySelector('#table');
+    let dataTable = new simpleDatatables.DataTable(table1);
     </script>
 
     <script src="{{ asset('mazer/vendors/ckeditor/ckeditor.js') }}"></script>
 
     <script>
-        ClassicEditor
-            .create(document.querySelector('#editor'))
-            .catch(error => {
-                console.error(error);
-            });
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
     </script>
 
     {{-- <script src="{{ asset('mazer/vendors/apexcharts/apexcharts.js')}}"></script>
@@ -115,32 +146,49 @@
     <script src="{{ asset('plugin/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 
     <script>
-        $(document).ready(function() {
-            // DataTable
-            $('#trainingTable').DataTable();
-        });
+    $(document).ready(function() {
+        // DataTable
+        $('#trainingTable').DataTable();
+    });
     </script>
 
     <script>
-        // Hapus Data Training
-        $(document).on('click', '.hapus-training', function(e) {
-            var form = $(this).closest("form");
-            var name = $(this).data("name");
-            e.preventDefault();
-            Swal.fire({
-                title: 'Apakah Anda Yakin?',
-                text: "Data Training!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus Data!'
-            }).then((result) => {
-                if (result) {
-                    form.submit();
-                }
-            })
+    // Hapus Data Training
+    $(document).on('click', '.hapus-training', function(e) {
+        var form = $(this).closest("form");
+        var name = $(this).data("name");
+        e.preventDefault();
+        Swal.fire({
+            title: 'Apakah Anda Yakin?',
+            text: "Data Training!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Hapus Data!'
+        }).then((result) => {
+            if (result) {
+                form.submit();
+            }
+        })
+    });
+    </script>
+
+    <script>
+    document.querySelectorAll('.treeview li span').forEach(function(node) {
+        node.addEventListener('click', function(event) {
+            event.stopPropagation();
+            var parent = event.target.parentNode;
+            if (parent.classList.contains('active')) {
+                parent.classList.remove('active');
+            } else {
+                document.querySelectorAll('.treeview li').forEach(function(node) {
+                    node.classList.remove('active');
+                });
+                parent.classList.add('active');
+            }
         });
+    });
     </script>
 </body>
 

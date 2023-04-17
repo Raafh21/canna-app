@@ -1,5 +1,4 @@
 @extends('layout.main')
-
 @section('container')
 <div class="page-content">
     <section class="section">
@@ -20,12 +19,10 @@
                             <th>Jumlah Data</th>
                             <th>Jumlah IPA</th>
                             <th>Jumlah IPS</th>
-                            <th>Entropy</th>
-                            <th>Gain</th>
                         </tr>
                     </thead>
-
                 </table>
+
             </div>
         </div>
     </section>

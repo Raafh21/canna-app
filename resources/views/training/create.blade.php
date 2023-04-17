@@ -15,7 +15,9 @@
                             <div class="col-md-4">
                                 <div class="form-group mt-3">
                                     <label for="nama_siswa">Nama Siswa</label>
-                                    <input type="text" class="form-control mt-2  @error('nama_siswa') is-invalid @enderror" name="nama_siswa" id="nama_siswa" placeholder="Nama Siswa">
+                                    <input type="text"
+                                        class="form-control mt-2  @error('nama_siswa') is-invalid @enderror"
+                                        name="nama_siswa" id="nama_siswa" placeholder="Nama Siswa">
                                     @error('nama_siswa')
                                     <div class="invalid-feedback">
                                         <i class="bx bx-radio-circle"></i>
@@ -25,7 +27,8 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="nama_sekolah">Nama Sekolah</label>
-                                    <input type="text" class="form-control mt-2" name="nama_sekolah" id="nama_sekolah" placeholder="Nama Sekolah">
+                                    <input type="text" class="form-control mt-2" name="nama_sekolah" id="nama_sekolah"
+                                        placeholder="Nama Sekolah">
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="minat">Minat</label>

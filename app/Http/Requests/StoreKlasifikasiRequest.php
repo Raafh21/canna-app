@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTrainingRequest extends FormRequest
+class StoreKlasifikasiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,9 +21,10 @@ class StoreTrainingRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+   public function rules()
     {
         return [
+            'no_pendaftaran' => 'required',
             'nama_siswa' => 'required|max:255',
             'nama_sekolah' => 'required|max:255',
             'minat' => 'required|max:255',
@@ -52,6 +53,7 @@ class StoreTrainingRequest extends FormRequest
     public function messages()
     {
         return [
+            'no_pendaftaran.required' => 'No.Pendaftaran Tidak Boleh Kosong.',
             'nama_siswa.required' => 'Nama Siswa Tidak Boleh Kosong.',
             'nama_sekolah.required' => 'Nama sekolah Tidak Boleh Kosong.',
             'minat.required' => 'Minat Tidak Boleh Kosong.',

@@ -53,7 +53,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="navbar-nav " href="/klasifikasi">Klasifikasi</a></li>
+                    <li><a class="navbar-nav " href="{{route ('riwayat.create')}}">Klasifikasi</a></li>
                     <li><a class="navbar-nav " href="/riwayat">Riwayat Klasifikasi</a></li>
                     <li><a class="navbar-nav " href="{{route ('about') }}">Tentang</a></li>
                 </ul>

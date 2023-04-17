@@ -10,10 +10,10 @@
             <div class="card-body">
                 <a href="" class="btn btn-danger btn-sm mb-3">
                     Hapus Pohon Keputusan</a>
-                <a href="" class="btn btn-secondary btn-sm mb-3">
+                <a href="/uji" class="btn btn-secondary btn-sm mb-3">
                     Uji Rule</a>
 
-                <p>Jumlah Rule = {{ $jumlahDataRule }}</p>
+                <p>Jumlah Rule = </p>
                 <table class="table table-striped" id="table">
                     <thead>
                         <tr>
@@ -21,14 +21,9 @@
                             <th>Rule/Aturan</th>
                         </tr>
                     </thead>
-                    @foreach($dataRule as $row)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $row->parent }}</td>
-                    </tr>
-                    @endforeach
                 </table>
             </div>
+
         </div>
     </section>
 </div>

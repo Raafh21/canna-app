@@ -8,7 +8,7 @@
                 <h2 class="card-title">{{ $title }}</h2>
             </div>
             <div class="card-body">
-                <p>Jumlah Data Uji = count_data uji</p>
+                <p>Jumlah Data Uji = </p>
                 <table class="table table-striped" id="table">
                     <thead>
                         <tr>
